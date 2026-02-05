@@ -9,6 +9,7 @@ const NavComp = () => {
             <Link to="hooks" className='btn btn-primary btn-sm'>Hooks</Link>{" "}
             <Link to="mycss" className='btn btn-primary btn-sm'>My CSS</Link>{" "}
             <Link to="virtualdom" className='btn btn-primary btn-sm'>Virtual DOM</Link>{" "}
+            <Link to="form" className='btn btn-primary btn-sm'>Form</Link>{" "}
         </div>
     )
 }
