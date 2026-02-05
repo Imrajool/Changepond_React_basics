@@ -1,0 +1,11 @@
+.text-danger{
+    color: red;
+    background-color: beige;
+    font-family: cursive;
+}
+
+.text-success{
+    color: green;
+    background-color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
+}
