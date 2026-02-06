@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "pname": "Laptop",
+      "pprice": 55000,
+      "pcompany": "HP"
+    },
+    {
+      "id": "2",
+      "pname": "Mouse",
+      "pprice": 2000,
+      "pcompany": "Ibal"
+    },
+    {
+      "id": "3",
+      "pname": "Keyboard",
+      "pprice": 500,
+      "pcompany": "Dell"
+    },
+    {
+      "id": "4",
+      "pname": "Adaptor",
+      "pprice": 3000,
+      "pcompany": "Toshiba"
+    },
+    {
+      "id": "f218",
+      "pname": "Mobile",
+      "pprice": "70000",
+      "pcompany": "Apple"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "uid": "admin@gmail.com",
+      "upassword": "admin@123"
+    },
+    {
+      "id": "2",
+      "uid": "king@gmail.com",
+      "upassword": "king@123"
+    }
+  ]
+}

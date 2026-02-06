@@ -10,6 +10,8 @@ const NavComp = () => {
             <Link to="mycss" className='btn btn-primary btn-sm'>My CSS</Link>{" "}
             <Link to="virtualdom" className='btn btn-primary btn-sm'>Virtual DOM</Link>{" "}
             <Link to="form" className='btn btn-primary btn-sm'>Form</Link>{" "}
+            <Link to="productdetails" className='btn btn-warning btn-sm'>Product</Link>{" "}
+            <Link to="datalist" className='btn btn-secondary btn-sm'>Data List</Link>{" "}
         </div>
     )
 }

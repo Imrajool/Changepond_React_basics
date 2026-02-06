@@ -11,6 +11,10 @@ import PageNotFound from '../layout/PageNotFound'
 import ClassComp from '../components/ClassComp'
 import VirtualDOMComp from "../components/VirtualDOMComp";
 import FormValComp from "../components/FormValComp";
+import AddProductComp from '../CRUD/AddProductComp'
+import UpdateProductComp from '../CRUD/UpdateProductComp'
+import ProductDetailComp from '../CRUD/ProductDetailComp'
+import DataListComp from '../layout/DataListComp'
 
 const router = createBrowserRouter([
     {
@@ -22,6 +26,10 @@ const router = createBrowserRouter([
             { path: "mycss", element: <ClickComp /> },
             //4.child routing
             {path:"form",element:<FormValComp/>},
+            {path:"datalist",element:<DataListComp/>},
+            {path:"addproducts",element:<AddProductComp/>},
+            {path:"updateproducts/:id",element:<UpdateProductComp/>},
+            {path:"productdetails",element:<ProductDetailComp/>},
             {
                 path: "hooks", element: <HooksComp />, children: [
                     { path: "usestate", element: <UseStateComp /> }
