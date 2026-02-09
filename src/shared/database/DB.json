@@ -1,34 +1,25 @@
 {
   "products": [
     {
-      "id": "1",
-      "pname": "Laptop",
-      "pprice": 55000,
-      "pcompany": "HP"
-    },
-    {
       "id": "2",
       "pname": "Mouse",
       "pprice": 2000,
       "pcompany": "Ibal"
     },
     {
-      "id": "3",
-      "pname": "Keyboard",
-      "pprice": 500,
-      "pcompany": "Dell"
-    },
-    {
-      "id": "4",
-      "pname": "Adaptor",
-      "pprice": 3000,
-      "pcompany": "Toshiba"
-    },
-    {
       "id": "f218",
       "pname": "Mobile",
       "pprice": "70000",
       "pcompany": "Apple"
+    },
+    {
+      "id": "266f",
+      "pname": "ps5",
+      "pprice": "50000",
+      "pcompany": "sony"
+    },
+    {
+      "id": "aa34"
     }
   ],
   "users": [

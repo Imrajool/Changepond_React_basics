@@ -4,31 +4,26 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { deleteData } from '../redux/apiSlices';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData,deleteData } from '../redux/apiSlices';
 const ProductDetailComp = () => {
     const dispatch=useDispatch()
-    const [products, setProducts] = useState([])
+    const {products,error,status}=useSelector((state)=>state.api)
     useEffect(() => {
-        fetchData()
-        deleteData()
-
-    }, [])
-    const fetchData = () => {
-        axios.get("http://localhost:8888/products").then((res) => {
-            console.log(res.data)
-            setProducts(res.data)
-        }).catch((error) => { })
-    }
-
-    // const deleteProduct = (id)=>{
-    //    if(window.confirm(`Are you sure to delete the product with id :${id}`)){
-    //       axios.delete(`http://localhost:8888/products/${id}`).then(()=>{
-    //         window.alert("Peoduct Deleted Successfully")
-    //         fetchData()
-    //     }).catch((error)=>{})
-    //    }
+        dispatch(fetchData())
+    }, [dispatch,products])
+    // const fetchData = () => {
+    //     axios.get("http://localhost:8888/products").then((res) => {
+    //         console.log(res.data)
+    //         setProducts(res.data)
+    //     }).catch((error) => { })
     // }
+
+    const deleteProduct = (id)=>{
+       if(window.confirm(`Are you sure to delete the product with id :${id}`)){
+            dispatch(deleteData(id))
+       }
+    }
 
 
     return (
@@ -53,7 +48,7 @@ const ProductDetailComp = () => {
                                         <td>{value.pcompany}</td>
                                         <td>
                                             <Link to={`/dashboard/updateproducts/${value.id}`} className='btn btn-success'><EditIcon></EditIcon></Link>{" "}
-                                            <button type='button' className='btn btn-danger'><Link to={`http://localhost:8888/products/delete/:${index}`}><DeliveryDiningIcon/></Link></button>
+                                            <button type='button' className='btn btn-danger' onClick={()=>deleteProduct(value.id)}><DeliveryDiningIcon/></button>
                                         </td>
                                     </tr>
                                     
