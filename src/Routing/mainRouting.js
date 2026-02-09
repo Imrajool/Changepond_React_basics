@@ -15,6 +15,8 @@ import AddProductComp from '../CRUD/AddProductComp'
 import UpdateProductComp from '../CRUD/UpdateProductComp'
 import ProductDetailComp from '../CRUD/ProductDetailComp'
 import DataListComp from '../layout/DataListComp'
+import ToggleImage from "../components/ToggleComp";
+import MyComp from "../components/MyComp";
 
 const router = createBrowserRouter([
     {
@@ -36,10 +38,12 @@ const router = createBrowserRouter([
                 ]
             },
             {path:"virtualdom",element:<VirtualDOMComp/>},
+            {path:"toggle",element:<ToggleImage/>},
         ]
     },
     //1.default routing
     { path: "", element: <ClassComp/> },
+    { path: "mycomp", element: <MyComp/> },
     //5.wild card routing
     { path: "*", element: <PageNotFound /> }
 ])

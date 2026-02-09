@@ -12,6 +12,7 @@ const NavComp = () => {
             <Link to="form" className='btn btn-primary btn-sm'>Form</Link>{" "}
             <Link to="productdetails" className='btn btn-warning btn-sm'>Product</Link>{" "}
             <Link to="datalist" className='btn btn-secondary btn-sm'>Data List</Link>{" "}
+            <Link to="toggle" className='btn btn-secondary btn-sm'>Toggle Image</Link>{" "}
         </div>
     )
 }

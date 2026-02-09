@@ -34,6 +34,12 @@ const FormValComp = () => {
         if(!user.lname.match("[a-zA-z]{2,15}")){
             return window.alert("Name should be in characters with min 2 charcaters and max 15 characters")
         }
+        if(user.password==="" || user.password ==="      "){
+            return window.alert("Enter the password")
+        }
+        if(user.password.length<6){
+            return window.alert("Password should be atleast 6 characters")
+        }
         window.alert(JSON.stringify(user))
     }
     return (

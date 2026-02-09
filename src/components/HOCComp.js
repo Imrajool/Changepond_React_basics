@@ -13,9 +13,15 @@ const HOCComp = (WrapperComponent) => {
         updateState = ()=>{
             this.setState((prevState)=>({count:prevState.count+1}))
         }
+
+        updatestate =()=>{
+            this.setState((prevState)=>({count:prevState.count-1}))
+        }
         
         render(){
-            return <WrapperComponent count={this.state.count} updateState={this.updateState}></WrapperComponent>
+            return(
+                <WrapperComponent count={this.state.count} increement={this.updateState} decreement={this.updatestate}></WrapperComponent>
+            ) 
         }
             
     }    

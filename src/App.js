@@ -7,6 +7,8 @@ import HOCComp from './components/HOCComp';
 import ClickCounterComp from './components/ClickCounterComp';
 import HoverCounterComp from './components/HoverCounterComp';
 import CompLifeCycleComp from './components/CompLifeCycleComp';
+import MyComp from './components/MyComp'
+
 
 function App() {
   return (
@@ -39,6 +41,7 @@ function App() {
       <HoverCounterComp/>
       <HOCComp/> */}
       <CompLifeCycleComp newColor='green'/>
+      <MyComp fname="Anto" age="23" gender="male"/>
     </div>
   );
 }

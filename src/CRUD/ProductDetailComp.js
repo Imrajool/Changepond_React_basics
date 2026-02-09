@@ -4,10 +4,15 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteData } from '../redux/apiSlices';
 const ProductDetailComp = () => {
+    const dispatch=useDispatch()
     const [products, setProducts] = useState([])
     useEffect(() => {
         fetchData()
+        deleteData()
+
     }, [])
     const fetchData = () => {
         axios.get("http://localhost:8888/products").then((res) => {
@@ -16,14 +21,14 @@ const ProductDetailComp = () => {
         }).catch((error) => { })
     }
 
-    const deleteProduct = (id)=>{
-       if(window.confirm(`Are you sure to delete the product with id :${id}`)){
-          axios.delete(`http://localhost:8888/products/${id}`).then(()=>{
-            window.alert("Peoduct Deleted Successfully")
-            fetchData()
-        }).catch((error)=>{})
-       }
-    }
+    // const deleteProduct = (id)=>{
+    //    if(window.confirm(`Are you sure to delete the product with id :${id}`)){
+    //       axios.delete(`http://localhost:8888/products/${id}`).then(()=>{
+    //         window.alert("Peoduct Deleted Successfully")
+    //         fetchData()
+    //     }).catch((error)=>{})
+    //    }
+    // }
 
 
     return (
@@ -48,7 +53,7 @@ const ProductDetailComp = () => {
                                         <td>{value.pcompany}</td>
                                         <td>
                                             <Link to={`/dashboard/updateproducts/${value.id}`} className='btn btn-success'><EditIcon></EditIcon></Link>{" "}
-                                            <button type='button' onClick={()=>deleteProduct(value.id)} className='btn btn-danger'><DeliveryDiningIcon/></button>
+                                            <button type='button' className='btn btn-danger'><Link to={`http://localhost:8888/products/delete/:${index}`}><DeliveryDiningIcon/></Link></button>
                                         </td>
                                     </tr>
                                     
