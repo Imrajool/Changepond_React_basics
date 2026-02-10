@@ -8,6 +8,7 @@ import ClickCounterComp from './components/ClickCounterComp';
 import HoverCounterComp from './components/HoverCounterComp';
 import CompLifeCycleComp from './components/CompLifeCycleComp';
 import MyComp from './components/MyComp'
+import ClassComp from './components/ClassComp';
 
 
 function App() {
@@ -27,8 +28,13 @@ function App() {
           Learn React
         </a>
       </header> */}
-      {/* <ImageComp/> */}
-      {/* <ErrorBoundaryComp>
+      <ClassComp ename="Anto"/>
+      <MyComp fname="Anto" age="23" gender="male"/>
+      <HoverCounterComp/>
+      <ClickCounterComp/>
+      <HOCComp/>
+      <ImageComp/>
+      <ErrorBoundaryComp>
           <UserComp user="Anto"/>
       </ErrorBoundaryComp>
       <ErrorBoundaryComp>
@@ -36,12 +42,8 @@ function App() {
       </ErrorBoundaryComp>
       <ErrorBoundaryComp>
           <UserComp user="Rajool"/>
-      </ErrorBoundaryComp> */}
-      {/* <ClickCounterComp/>
-      <HoverCounterComp/>
-      <HOCComp/> */}
+      </ErrorBoundaryComp>
       <CompLifeCycleComp newColor='green'/>
-      <MyComp fname="Anto" age="23" gender="male"/>
     </div>
   );
 }

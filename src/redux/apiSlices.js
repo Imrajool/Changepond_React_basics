@@ -18,6 +18,7 @@ export const deleteData = createAsyncThunk("/api/deleteProduct", async (id) => {
 
 export const updateData = createAsyncThunk("/api/updateData",async({id,updateProduct})=>{
     const response=await axios.put(`${API_url}/${id}`,updateProduct)
+    console.log(response.data)
     return response.data
 })
 
@@ -54,12 +55,30 @@ const apiSlice = createSlice({
                 state.error = action.error.message;
                 state.status = "failed";
             })
+            // .addCase(updateData.fulfilled, (state, action) => {
+            //     // Remove the product from local state using the ID returned from thunk
+            //     state.products = state.products.map((p) => p.id === action.payload.id ? action.payload:p);
+            //     state.status = "succeeded";
+            //     alert("Product updated Successfully");
+            // })
+
             .addCase(updateData.fulfilled, (state, action) => {
-                // Remove the product from local state using the ID returned from thunk
-                state.products = state.products.map((p) => p.id === action.payload.id ? action.payload:p);
+                // action.meta.arg contains the data you SENT to the thunk ({id, updateProduct})
+                // action.payload contains what the API SENT BACK
+                
+                const { id, updateProduct } = action.meta.arg;
+                
+                const index = state.products.findIndex((product) => product.id == id);
+                if (index !== -1) {
+                    // Option A: Use action.payload if API returns the FULL object
+                    // state.data[index] = action.payload; 
+
+                    // Option B: Merge local changes with state (Safest if API only returns ID)
+                    state.products[index] = { ...state.products[index], ...updateProduct };
+                }
                 state.status = "succeeded";
-                alert("Product updated Successfully");
             })
+
             .addCase(updateData.rejected, (state, action) => {
                 state.error = action.error.message;
                 state.status = "failed";

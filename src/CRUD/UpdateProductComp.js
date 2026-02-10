@@ -1,13 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { updateData } from '../redux/apiSlices'
+import { fetchData, updateData } from '../redux/apiSlices'
 
 const UpdateProductComp = () => {
     const { id } = useParams()
     const nav = useNavigate()
     const dispatch = useDispatch()
+
+    const products = useSelector((state) => state.api.products);
+
 
     const [product, setProduct] = useState({
         pname:"",
@@ -30,21 +33,37 @@ const UpdateProductComp = () => {
 
     const newData = (e)=>{
         e.preventDefault()
-        dispatch(updateData({id,updatedProduct:product}))
-        nav('/dashboard/productdetails')
+        dispatch(updateData({id,updateProduct:product}))
+        dispatch(fetchData())
+        nav('/dashboard/datalist')
     }
-    useEffect(() => {
-        axios.get(`http://localhost:8888/products/${id}`)
-        .then(res=>{
-            setProduct({
-                pname:res.data.pname || "",
-                pprice:res.data.pprice ||  "",
-                pcompany:res.data.pcompany || "",
-            })
+    // useEffect(() => {
+    //     axios.get(`http://localhost:8888/products/${id}`)
+    //     .then(res=>{
+    //         setProduct({
+    //             pname:res.data.pname,
+    //             pprice:res.data.pprice,
+    //             pcompany:res.data.pcompany,
+    //         })
             
-        })
-        .catch(console.error)
-    }, [dispatch])
+    //     })
+    //     .catch(console.error)
+    // }, [dispatch,product,id])
+
+    useEffect(() => {
+    if (products?.length === 0) {
+      dispatch(fetchData());
+    } else {
+      const selectedProduct = products.find(
+        (item) => String(item.id) === String(id)
+
+      );
+      if (selectedProduct) {
+        setProduct(selectedProduct);
+      }
+    }
+  }, [dispatch, products, id]);
+
 
     return (
         <div>

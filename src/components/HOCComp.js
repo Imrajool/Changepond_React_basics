@@ -20,7 +20,10 @@ const HOCComp = (WrapperComponent) => {
         
         render(){
             return(
-                <WrapperComponent count={this.state.count} increement={this.updateState} decreement={this.updatestate}></WrapperComponent>
+                <WrapperComponent 
+                count={this.state.count} 
+                increement={this.updateState} 
+                decreement={this.updatestate}></WrapperComponent>
             ) 
         }
             

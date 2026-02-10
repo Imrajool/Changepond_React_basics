@@ -13,13 +13,16 @@
       "pcompany": "Apple"
     },
     {
-      "id": "266f",
-      "pname": "ps5",
-      "pprice": "50000",
+      "id": "01a8",
+      "pname": "ps4",
+      "pprice": "500000",
       "pcompany": "sony"
     },
     {
-      "id": "aa34"
+      "id": "b4e0",
+      "pname": "ps5",
+      "pprice": "70000",
+      "pcompany": "sony"
     }
   ],
   "users": [

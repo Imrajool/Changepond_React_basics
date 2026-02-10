@@ -17,6 +17,7 @@ import ProductDetailComp from '../CRUD/ProductDetailComp'
 import DataListComp from '../layout/DataListComp'
 import ToggleImage from "../components/ToggleComp";
 import MyComp from "../components/MyComp";
+import CompLifeCycleComp from '../components/CompLifeCycleComp'
 
 const router = createBrowserRouter([
     {
@@ -42,7 +43,8 @@ const router = createBrowserRouter([
         ]
     },
     //1.default routing
-    { path: "", element: <ClassComp/> },
+    // { path: "", element: <ClassComp/> },
+    { path: "compcycle", element: <CompLifeCycleComp/> },
     { path: "mycomp", element: <MyComp/> },
     //5.wild card routing
     { path: "*", element: <PageNotFound /> }
